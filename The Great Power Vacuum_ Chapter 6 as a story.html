@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Great Power Vacuum: Chapter 6 as a story</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f5f8fb; --grid:#dde7f0; --graphite:#383b42; --soft:#6b7079;
+  --ink:#2447a0; --hl:rgba(255,226,60,.6); --box:#ffffff; --line:#c9d3dd;
+  --hand:"Kalam","Comic Sans MS","Segoe Print",cursive;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#1b2027; --grid:#262e38; --graphite:#dcdfe4; --soft:#9aa1ab;
+    --ink:#94b3ff; --hl:rgba(255,210,0,.3); --box:#222933; --line:#3a4450;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1b2027; --grid:#262e38; --graphite:#dcdfe4; --soft:#9aa1ab;
+  --ink:#94b3ff; --hl:rgba(255,210,0,.3); --box:#222933; --line:#3a4450;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{
+  margin:0; color:var(--graphite); font-family:var(--serif);
+  font-size:1.1rem; line-height:1.7;
+  background-color:var(--paper);
+  background-image:
+    linear-gradient(var(--grid) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:24px 24px;
+}
+main{max-width:720px; margin:0 auto; padding:2.5rem 1.25rem 4rem}
+h1,h2,h3{font-family:var(--hand); font-weight:700; line-height:1.2; margin:0}
+h1{font-size:clamp(2.3rem,7vw,3.6rem); margin-top:.5rem}
+.sub{font-family:var(--hand); font-size:1.25rem; color:var(--soft); margin:.25rem 0 1.5rem}
+h2{font-size:clamp(1.7rem,4.5vw,2.3rem); margin:3.5rem 0 .25rem}
+h2 .ep{display:block; font-size:1.05rem; color:var(--ink); font-weight:400}
+h3{font-size:1.4rem; margin:2rem 0 .25rem}
+p{margin:.8rem 0}
+.k{background:linear-gradient(transparent 38%,var(--hl) 38%,var(--hl) 92%,transparent 92%); font-weight:600; padding:0 .1em; transition:filter .2s,color .2s}
+body.cover .k{color:transparent; filter:blur(0); background:var(--graphite); border-radius:2px; cursor:pointer}
+body.cover .k.peek{color:var(--graphite); background:linear-gradient(transparent 38%,var(--hl) 38%,var(--hl) 92%,transparent 92%)}
+.m{font-weight:400;color:var(--soft);font-size:.9em}
+.tag{font-family:var(--hand); color:var(--ink); font-size:1rem; white-space:nowrap; font-weight:400}
+.tag::before{content:"✎ "}
+figure{margin:1.5rem 0; text-align:center}
+figure svg{width:100%; height:auto; max-width:620px; display:block; margin:0 auto}
+figcaption{font-family:var(--hand); color:var(--soft); font-size:1rem; margin-top:.25rem}
+.sketch{color:var(--graphite)}
+.sketch .s{fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round}
+.sketch .thin{stroke-width:1.1}
+.sketch .dash{stroke-dasharray:6 6}
+.sketch .faint{opacity:.38}
+.sketch text{fill:currentColor; font-family:var(--hand); font-size:15px}
+.sketch text.ink{fill:var(--ink)}
+.sketch .hatch{fill:url(#hatch)}
+.lab{border:1.5px dashed var(--line); background:var(--box); border-radius:10px 4px 12px 5px; padding:.9rem 1.1rem; margin:1.5rem 0}
+.lab h4{font-family:var(--hand); font-size:1.2rem; margin:0 0 .2rem; color:var(--ink)}
+.lab p{margin:.4rem 0; font-size:1rem}
+.lab .nx{font-family:var(--hand); color:var(--soft); font-size:.95rem}
+.guide{background:var(--box); border:1.5px solid var(--line); border-radius:6px; padding:1rem 1.2rem; font-size:1rem}
+.guide ul{margin:.3rem 0 0; padding-left:1.2rem}
+.card{border-left:4px solid var(--graphite); padding:.2rem 0 .2rem 1rem; margin:1.5rem 0}
+.card .who{font-family:var(--hand); font-size:1.35rem; font-weight:700}
+.card .nick{font-family:var(--hand); color:var(--ink)}
+.frame{font-family:var(--hand); background:var(--box); border:1.5px solid var(--line); border-radius:6px; padding:.8rem 1.1rem; margin:1rem 0; font-size:1.05rem}
+.frame ol{margin:.2rem 0 0; padding-left:1.3rem}
+.tablewrap{overflow-x:auto; margin:1rem 0}
+table{border-collapse:collapse; min-width:620px; width:100%; font-size:.95rem; background:var(--box)}
+th,td{border:1px solid var(--line); padding:.55rem .6rem; text-align:left; vertical-align:top}
+th{font-family:var(--hand); font-size:1.05rem}
+.formula{font-family:var(--hand); font-size:1.15rem; display:flex; flex-wrap:wrap; gap:.35rem .5rem; align-items:center; background:var(--box); border:1.5px solid var(--line); border-radius:6px; padding:1rem}
+.formula span{border:1.5px solid var(--graphite); border-radius:14px 6px 14px 8px; padding:.1rem .6rem}
+.formula i{font-style:normal; color:var(--ink)}
+.dates{list-style:none; padding:0; margin:1rem 0; border-left:2px solid var(--graphite)}
+.dates li{padding:.3rem 0 .3rem 1rem; position:relative}
+.dates li::before{content:""; position:absolute; left:-7px; top:.85rem; width:12px; height:12px; border-radius:50%; background:var(--paper); border:2px solid var(--graphite)}
+.dates b{font-family:var(--hand); font-size:1.2rem; margin-right:.4rem}
+details{background:var(--box); border:1.5px solid var(--line); border-radius:6px; margin:.6rem 0; padding:.2rem .9rem}
+summary{cursor:pointer; padding:.5rem 0; font-weight:600}
+details[open] summary{border-bottom:1px dashed var(--line); margin-bottom:.4rem}
+details p{margin:.4rem 0 .7rem; font-size:1rem}
+.toolbar{position:sticky; top:env(safe-area-inset-top,0px); z-index:5; display:flex; justify-content:flex-end; padding:.5rem 0; pointer-events:none}
+button{pointer-events:auto; font-family:var(--hand); font-size:1.05rem; color:var(--paper); background:var(--graphite); border:0; border-radius:20px; padding:.4rem 1rem; cursor:pointer}
+button:focus-visible,summary:focus-visible{outline:3px solid var(--ink); outline-offset:3px}
+.foot{font-family:var(--hand); color:var(--soft); text-align:center; margin-top:3rem}
+@media (prefers-reduced-motion:reduce){.k{transition:none}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute;color:var(--graphite)" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="pencil" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="2" seed="4" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(40)">
+      <line x1="0" y1="0" x2="0" y2="5" stroke="currentColor" stroke-width=".8" opacity=".5"/>
+    </pattern>
+  </defs>
+</svg>
+
+<main>
+<div class="toolbar"><button id="coverBtn" type="button" aria-pressed="false">Cover the keywords</button></div>
+
+<p class="tag" style="margin:0">History, Chapter 6: Rise of Independent Regional Powers</p>
+<h1>The Great Power Vacuum</h1>
+<p class="sub">What happens when a giant empire cracks? Everybody rushes in.</p>
+
+<figure>
+<svg class="sketch" viewBox="0 0 600 300" role="img" aria-label="Sketch of a cracked pillar labelled Mughal Empire, with pieces flying off labelled with the new regional powers">
+  <g filter="url(#pencil)">
+    <path class="s" d="M40 264 Q300 257 560 264"/>
+    <rect class="s" x="222" y="234" width="156" height="28"/>
+    <path class="s hatch" d="M256 234 V112 L286 106 L271 142 L293 167 L279 200 L297 234 Z"/>
+    <path class="s" d="M305 234 L287 200 L301 167 L279 142 L294 106 L344 112 V234 Z"/>
+    <g transform="rotate(-13 300 92)"><rect class="s" x="232" y="74" width="136" height="28"/></g>
+    <path class="s thin" d="M362 70 l14 -6 M370 82 l16 -2 M226 104 l-14 4"/>
+    <!-- flying chunks -->
+    <path class="s" d="M150 88 l16 -6 l6 12 l-14 6 z"/>
+    <path class="s" d="M440 90 l18 -4 l2 14 l-16 4 z"/>
+    <path class="s" d="M455 170 l14 -8 l8 12 l-14 7 z"/>
+    <path class="s" d="M120 215 l16 -4 l3 13 l-15 4 z"/>
+    <path class="s faint" d="M200 36 l12 -4 l4 10 l-12 4 z"/>
+    <path class="s faint" d="M100 150 l12 -3 l3 10 l-12 3 z"/>
+    <path class="s faint" d="M500 225 l13 -4 l3 11 l-13 3 z"/>
+    <path class="s thin dash" d="M252 130 L180 96 M346 130 L430 98 M346 190 L448 170 M252 200 L145 215"/>
+  </g>
+  <text x="300" y="97" text-anchor="middle" transform="rotate(-13 300 92)" font-size="16">MUGHAL EMPIRE</text>
+  <text class="ink" x="300" y="287" text-anchor="middle">1707: Aurangzeb dies and the pillar cracks</text>
+  <text x="120" y="80">Marathas</text>
+  <text x="464" y="84">Bengal</text>
+  <text x="484" y="165">Awadh</text>
+  <text x="70" y="246">Mysore</text>
+  <text class="faint" x="222" y="32">Sikhs</text>
+  <text class="faint" x="40" y="148">Rajputs</text>
+  <text class="faint" x="480" y="252">Hyderabad</text>
+</svg>
+<figcaption>We follow the four dark pieces. The faint ones aren't in your syllabus.</figcaption>
+</figure>
+
+<div class="guide">
+<b style="font-family:var(--hand);font-size:1.15rem">How to read this</b>
+<ul>
+<li><span class="k">Yellow words</span> are exam keywords. Use these exact words in your answers.</li>
+<li><span class="tag">H1(a)</span> in blue tells you which textbook question that part answers.</li>
+<li>Dashed "lab notes" link the story to science and maths. They're for fun, not for the exam.</li>
+<li>When you think you know a section, press <b>Cover the keywords</b> at the top and try to say the hidden words. Tap a covered word to peek.</li>
+</ul>
+</div>
+
+<!-- EPISODE 1 -->
+<h2><span class="ep">Episode 1</span>The giant falls</h2>
+<p>For a long time, most of India was held up by one enormous pillar: the Mughal empire. Then in <b>1707</b> the emperor Aurangzeb died, and the empire began to break apart. The pillar cracked.</p>
+<p>When something that big collapses, it leaves an empty space behind it. <span class="k">As the Mughal empire began to disintegrate</span> <span class="m">(break into pieces)</span>, the <span class="k">political vacuum</span> <span class="m">(empty space of power)</span> was filled by a number of <span class="k">independent and semi-independent regional powers</span> <span class="m">(fully free and partly free kingdoms)</span> such as Bengal, Awadh (Oudh), Hyderabad, Mysore and the Maratha, Sikh and Rajput states. <span class="tag">F1</span></p>
+<p>These new powers were made in two different ways:</p>
+<p><b>Recipe 1, rebellion:</b> some, like the Maratha kingdom, were products of <span class="k">rebellion against the Mughal authority</span>.<br>
+<b>Recipe 2, the governor walks away:</b> others, like Bengal, were set up when governors of Mughal provinces <span class="k">took advantage of the decaying central authority</span> <span class="m">(the weakening power in Delhi)</span> and <span class="k">asserted their independence</span> <span class="m">(declared themselves free)</span>.</p>
+
+<div class="lab">
+<h4>Lab note: physics</h4>
+<p>Open an empty bottle underwater and water rushes in. A vacuum doesn't stay empty, because the pressure outside pushes something in. Power works the same way. When the Mughal "pressure" disappeared, local rulers rushed in to fill the gap.</p>
+</div>
+
+<!-- EPISODE 2 -->
+<h2><span class="ep">Episode 2</span>The Marathas: the strongest contender</h2>
+<p><span class="k">The most important</span> of all the regional powers was the <span class="k">Maratha kingdom</span>. In fact, the Marathas alone had the <span class="k">power and the potential to establish an all-India empire</span> upon the ashes of the Mughal empire. So they get the biggest part of our story.</p>
+
+<h3>The prisoner prince and the clever minister</h3>
+<p><b>Shahu</b>, the <span class="k">grandson of Shivaji</span>, had been <span class="k">imprisoned by Aurangzeb</span>. He was only released after the emperor died in 1707. Straight away, a <span class="k">war of succession</span> <span class="m">(a fight over who would be the next king)</span> broke out among the Marathas over who should be king.</p>
+<p>Shahu won the throne with the help of <b>Balaji Vishwanath</b>. As a reward for his services and loyalty, Balaji Vishwanath was given the post of <span class="k">Peshwa or chief minister (mukhya pradhan) in 1713</span>.</p>
+<p>Now the twist. Shahu was <span class="k">ease-loving and weak</span>. He liked comfort more than ruling. Slowly he was reduced to the position of <span class="k">ceremonial head</span> <span class="m">(a king only for show)</span> of the Maratha kingdom, while the <span class="k">real power and authority was exercised by the Peshwa</span>.</p>
+<p>Think of a school where the principal only cuts ribbons at functions while the vice-principal actually runs everything. That was Shahu and his Peshwa.</p>
+<p>This was the beginning of the <span class="k">second phase of Maratha history</span>: a period of <span class="k">dominance of the Peshwas</span>, who ruled the kingdom and <span class="k">transformed it into an empire (1713–1818)</span>. <span class="tag">H1(a)</span></p>
+
+<figure>
+<svg class="sketch" viewBox="0 0 600 270" role="img" aria-label="Sketch of a puppet: the Peshwa holds the strings above Shahu, who sits on a cushion wearing a crown and dozing">
+  <g filter="url(#pencil)">
+    <path class="s" d="M230 40 H370 M300 22 V60"/>
+    <path class="s thin" d="M236 40 L262 176 M364 40 L338 176 M300 60 L300 108"/>
+    <circle class="s" cx="300" cy="128" r="19"/>
+    <path class="s" d="M282 110 l4 -16 l7 10 l7 -14 l7 14 l7 -10 l4 16 z"/>
+    <path class="s thin" d="M292 126 h5 M303 126 h5 M295 137 q5 3 10 0"/>
+    <path class="s" d="M300 147 V196 M300 160 L262 176 M300 160 L338 176 M300 196 Q270 204 262 212 M300 196 Q330 204 338 212"/>
+    <ellipse class="s hatch" cx="300" cy="218" rx="72" ry="15"/>
+  </g>
+  <text class="ink" x="382" y="36">Peshwa: holds the real power</text>
+  <text x="340" y="112" font-size="20">z z z</text>
+  <text x="96" y="140">Shahu:</text>
+  <text x="96" y="160">ceremonial head,</text>
+  <text x="96" y="180">ease-loving, weak</text>
+  <text class="ink" x="300" y="258" text-anchor="middle">1713: the Peshwas take charge</text>
+</svg>
+<figcaption>Shahu wore the crown. The Peshwa pulled the strings.</figcaption>
+</figure>
+
+<h3>Three Peshwas, three superpowers</h3>
+
+<div class="card">
+<div class="who">1. Balaji Vishwanath</div>
+<div class="nick">The deal-maker</div>
+<p>He took full advantage of the <span class="k">weaknesses of the Mughal administration</span> to <span class="k">extract important concessions</span> <span class="m">(get special rights)</span> and increase the power and prestige of the Marathas:</p>
+<p>All the territories that once belonged to Shivaji, but had been conquered by Aurangzeb, were <span class="k">restored to Shahu</span>. The Marathas also got the right to collect <span class="k">chauth and sardeshmukhi</span> (two kinds of tax) from <span class="k">six Mughal provinces in the Deccan</span>.</p>
+<p>In <b>1719</b>, Balaji Vishwanath <span class="k">marched to Delhi</span> to help the <span class="k">Sayyid brothers overthrow the Mughal emperor Farrukhsiyar</span>. Imagine that: the Marathas were now strong enough to help decide who sat on the Mughal throne!</p>
+<p>He made the Marathas a <span class="k">formidable power</span> <span class="m">(a very strong power)</span> and laid the <span class="k">foundations of the hereditary, dynastic rule of the Peshwas</span>. That means the job of Peshwa would now pass from father to son. He was succeeded by his son, Baji Rao I.</p>
+</div>
+
+<div class="lab">
+<h4>Lab note: maths</h4>
+<p>Chauth was one-fourth of a province's revenue and sardeshmukhi was an extra one-tenth. If a province collected 1,000 gold coins, how many went to the Marathas?</p>
+<p class="nx">Answer: 250 + 100 = 350 coins, which is 35%. Now multiply that by six provinces.</p>
+</div>
+
+<div class="card">
+<div class="who">2. Baji Rao I</div>
+<div class="nick">The military genius</div>
+<p>Baji Rao I was a <span class="k">military genius</span>. Under his <span class="k">bold and dynamic leadership</span>, the Maratha kingdom was <span class="k">transformed into the Maratha empire</span> after a series of <span class="k">brilliant campaigns against the Mughals and other rivals</span>. <span class="tag">H1(b)(i)</span></p>
+<p>During his time, four <span class="k">prominent Maratha families</span> rose to power: the <b>Sindhia, the Bhonsle, the Holkar and the Gaekwad</b>. <br><span class="tag">memory trick: "Some Brave Horsemen Gallop"</span></p>
+</div>
+
+<h3>How the Maratha confederacy was built</h3>
+<p>The empire was now too big for one man to control directly. So the <span class="k">Peshwas divided the erstwhile Mughal provinces</span> <span class="m">(former Mughal provinces)</span> into <span class="k">"spheres of influence"</span> <span class="m">(areas of control)</span> and placed them under the <span class="k">chiefs of these Maratha families</span>.</p>
+<p>These chiefs enjoyed <span class="k">maximum autonomy</span> <span class="m">(freedom to run things their own way)</span> within their regions. The Peshwa was the <span class="k">official head of this loose union of Maratha chiefs</span>, which is called the <span class="k">Maratha confederacy</span>. <span class="tag">H1(c)</span></p>
+
+<figure>
+<svg class="sketch" viewBox="0 0 600 300" role="img" aria-label="Molecule-style diagram: Peshwa at Poona in the centre, connected by dashed weak bonds to Sindhia, Holkar, Bhonsle and Gaekwad">
+  <g filter="url(#pencil)">
+    <path class="s dash" d="M258 128 L165 88 M342 128 L435 88 M258 172 L165 212 M342 172 L435 212"/>
+    <circle class="s hatch" cx="300" cy="150" r="50"/>
+    <circle class="s" cx="128" cy="72" r="40"/>
+    <circle class="s" cx="472" cy="72" r="40"/>
+    <circle class="s" cx="128" cy="228" r="40"/>
+    <circle class="s" cx="472" cy="228" r="40"/>
+  </g>
+  <text x="300" y="148" text-anchor="middle" font-size="19" font-weight="700">Peshwa</text>
+  <text x="300" y="168" text-anchor="middle" font-size="14">(Poona)</text>
+  <text x="128" y="77" text-anchor="middle">Sindhia</text>
+  <text x="472" y="77" text-anchor="middle">Holkar</text>
+  <text x="128" y="233" text-anchor="middle">Bhonsle</text>
+  <text x="472" y="233" text-anchor="middle">Gaekwad</text>
+  <text class="ink" x="300" y="290" text-anchor="middle">- - - loose bonds: each chief runs his own "sphere of influence"</text>
+</svg>
+<figcaption>The Maratha confederacy, drawn like a molecule.</figcaption>
+</figure>
+
+<div class="lab">
+<h4>Lab note: chemistry</h4>
+<p>In a molecule, atoms joined by strong bonds are hard to separate. Atoms held by weak forces can be pulled apart easily. The confederacy was a loose union, closer to the weak kind. Each chief was strong in his own region, but the whole thing was only loosely held together at the centre.</p>
+</div>
+
+<div class="card">
+<div class="who">3. Balaji Baji Rao</div>
+<div class="nick">The expander</div>
+<p>Baji Rao I was succeeded by his <span class="k">18-year-old son, Balaji Baji Rao</span>. When Shahu died, the <span class="k">Peshwa became the official head of the Maratha empire</span>. No more pretending! <span class="k">Poona (now Pune)</span>, the headquarters of the Peshwas, became the <span class="k">capital of the Maratha empire</span>.</p>
+<p>Balaji Baji Rao continued the <span class="k">policy of expansion</span>. During his reign, the Maratha empire <span class="k">reached the heights of its power and glory</span>. In the north, the Marathas became the <span class="k">power behind the Mughal throne</span>. <span class="tag">H1(b)(ii)</span></p>
+</div>
+
+<h3>The crash at Panipat, 1761</h3>
+<p>The Marathas kept pushing north and conquered <b>Punjab</b>. This brought them into direct conflict with the <span class="k">Afghan ruler, Ahmad Shah Abdali</span>. A major <span class="k">struggle for mastery over north India</span> <span class="m">(fight to control north India)</span> began.</p>
+<p>The <span class="k">Maratha army was decisively defeated</span> by Ahmad Shah Abdali at the <span class="k">Third Battle of Panipat in 1761</span>. The Maratha <span class="k">ambition of replacing the Mughal empire lay scattered on the plains of Panipat</span>.</p>
+<p>But here's the strange part. The <span class="k">Afghans, too, failed to capitalize on their victory</span> <span class="m">(did not make use of their win)</span>. They won the battle and then went home without taking over. Both big players were tired out. The conditions were ideal for the entry of <span class="k">another powerful contender for supremacy</span> <span class="m">(a rival for the top position)</span>: <span class="k">the English East India Company</span>. <span class="tag">G1</span></p>
+
+<figure>
+<svg class="sketch" viewBox="0 0 600 290" role="img" aria-label="Sketch of the Third Battle of Panipat: Maratha and Afghan flags charging at crossed swords in the middle, while an East India Company ship watches from the sea">
+  <g filter="url(#pencil)">
+    <path class="s" d="M70 40 V170 M70 42 L140 62 L70 84"/>
+    <path class="s" d="M530 40 V170 M530 42 L460 62 L530 84"/>
+    <path class="s" d="M100 120 H225 M212 110 L228 120 L212 130"/>
+    <path class="s" d="M500 120 H375 M388 110 L372 120 L388 130"/>
+    <path class="s" d="M265 80 L335 160 M335 80 L265 160 M258 150 l14 14 M342 150 l-14 14"/>
+    <path class="s thin" d="M300 62 v-14 M338 70 l10 -10 M262 70 l-10 -10 M350 120 h-4"/>
+    <path class="s thin" d="M300 200 q20 -8 40 0 t40 0 t40 0 t40 0 t40 0 M300 214 q20 -8 40 0 t40 0 t40 0 t40 0 t40 0"/>
+    <path class="s hatch" d="M400 205 L520 205 L505 230 L415 230 Z"/>
+    <path class="s" d="M460 205 V150 M460 152 L495 190 H460 M460 150 L482 144 L460 138"/>
+    <circle class="s thin" cx="438" cy="216" r="4"/>
+    <circle class="s thin" cx="452" cy="216" r="4"/>
+  </g>
+  <text x="70" y="30" text-anchor="middle">Marathas</text>
+  <text x="530" y="30" text-anchor="middle">Abdali (Afghans)</text>
+  <text x="300" y="185" text-anchor="middle" font-weight="700">Panipat, 1761</text>
+  <text x="400" y="250">English East India Company</text>
+  <text class="ink" x="400" y="270">"...waiting for my chance"</text>
+</svg>
+<figcaption>Two giants knock each other out. A third player watches from the sea.</figcaption>
+</figure>
+
+<div class="frame">
+<b>Answer frame for G1: why is the Third Battle of Panipat significant?</b>
+<ol>
+<li>The Maratha army was decisively defeated by Ahmad Shah Abdali.</li>
+<li>The Maratha ambition of replacing the Mughal empire was destroyed.</li>
+<li>The Afghans also failed to capitalize on their victory.</li>
+<li>This created ideal conditions for the English East India Company to rise.</li>
+</ol>
+</div>
+
+<!-- EPISODE 3 -->
+<h2><span class="ep">Episode 3</span>Bengal: rich, but with a weak immune system</h2>
+<p>Bengal was one of the <span class="k">richest provinces of the Mughal empire</span>. Remember that word, "richest". The textbook's true/false question tries to trick you with "poorest".</p>
+
+<h3>Murshid Quli Khan: the governor who walked away</h3>
+<p>As Mughal power declined, the governor of Bengal, <b>Murshid Quli Khan</b>, <span class="k">took advantage of the situation to free himself from imperial control</span> <span class="m">(the emperor's control)</span>. He was clever about it. <span class="k">He continued to pay annual tribute</span> <span class="m">(a yearly payment to show loyalty)</span> to the Mughal empire, so Delhi stayed happy, but he <span class="k">began to rule Bengal independently</span>. <span class="tag">F2</span></p>
+<p>Murshid Quli Khan was an <span class="k">excellent administrator</span> and a man of <span class="k">exceptional abilities</span>. He <span class="k">freed Bengal from external and internal dangers</span> and established <span class="k">stability, peace and prosperity</span> in the state. <span class="tag">H2(a)</span></p>
+
+<h3>Alivardi Khan: the one who saw the danger</h3>
+<p>The <span class="k">most capable among his successors was Alivardi Khan</span>. He <span class="k">recognized the importance of promoting trade</span> and <span class="k">encouraged merchants, Indian as well as foreign</span>, to trade in Bengal.</p>
+<p>But he was careful. He <span class="k">did not allow the French and British merchants to fortify their factories</span> <span class="m">(build walls and defences around their trading posts)</span> in <span class="k">Chandernagore (now Chandannagar) and Calcutta (now Kolkata)</span>. Trade, yes. Forts, no. <span class="tag">H2(b)</span></p>
+<p class="tag" style="white-space:normal">"Factory" here means a trading post and warehouse, not a place with machines.</p>
+
+<h3>Where it went wrong</h3>
+<p>The nawabs of Bengal <span class="k">failed to understand the true nature and ulterior motives of the British trading company</span> <span class="m">(its hidden plans)</span>. They believed that <span class="k">a trading company could never challenge their authority</span>. <span class="k">No efforts were made to reorganize and strengthen the army</span>. <span class="k">Corruption was rampant</span> <span class="m">(everywhere)</span>, and even <span class="k">high ranking officials were susceptible to bribes</span> <span class="m">(could easily be bought with money)</span>. <span class="tag">H2(c)</span></p>
+<p>These weaknesses made Bengal a <span class="k">happy hunting ground for the aggressive and imperialistic ambitions of the British</span> <span class="m">(an easy target for the British, who wanted to rule other lands)</span>.</p>
+
+<figure>
+<svg class="sketch" viewBox="0 0 600 280" role="img" aria-label="Sketch of Bengal as a fort with its gate open, a bag of bribe money beside it, and a British ship arriving">
+  <g filter="url(#pencil)">
+    <path class="s" d="M150 230 V110 h20 v-15 h20 v15 h20 v-15 h20 v15 h20 v-15 h20 v15 h20 v-15 h20 v15 h20 v120"/>
+    <path class="s hatch" d="M150 230 V110 h20 v120 z"/>
+    <path class="s" d="M225 230 V175 Q255 150 285 175 V230"/>
+    <path class="s" d="M225 230 L200 222 V178 L225 175 M285 230 L310 222 V178 L285 175"/>
+    <path class="s" d="M40 232 H330"/>
+    <path class="s" d="M70 230 q-22 0 -22 -28 q0 -22 22 -30 q-8 -8 0 -12 h14 q8 4 0 12 q22 8 22 30 q0 28 -22 28 z"/>
+    <path class="s thin" d="M360 222 q20 -8 40 0 t40 0 t40 0 t40 0 t40 0"/>
+    <path class="s" d="M400 215 L540 215 L522 240 L418 240 Z"/>
+    <path class="s" d="M470 215 V140 M470 142 L510 196 H470 M470 140 L494 133 L470 126"/>
+    <path class="s thin" d="M390 175 Q360 170 330 190 M338 180 L330 190 L342 193"/>
+  </g>
+  <text x="77" y="210" text-anchor="middle" font-size="18">₹</text>
+  <text x="44" y="258">bribes</text>
+  <text x="240" y="80" text-anchor="middle">Bengal: richest province</text>
+  <text x="215" y="258">weak army, gate wide open</text>
+  <text x="420" y="264">"just a trading company..."</text>
+  <text class="ink" x="330" y="160">ulterior motives</text>
+</svg>
+<figcaption>The happy hunting ground.</figcaption>
+</figure>
+
+<div class="lab">
+<h4>Lab note: biology</h4>
+<p>Your immune system works when it can recognize an invader, fight it with strong defences, and trust its own cells. Bengal's nawabs failed at all three. They didn't recognize the British as a threat, their "white blood cells" (the army) were weak, and their own officials could be bribed. Alivardi Khan was the one part of the immune system that did react, which is why he stopped the forts being built.</p>
+</div>
+
+<!-- EPISODE 4 -->
+<h2><span class="ep">Episode 4</span>Awadh: peace grows culture</h2>
+<p>The foundation of the independent state of Awadh was laid by <b>Saadat Khan</b>, the <span class="k">governor of the Mughal province of Awadh</span>. He was <span class="k">intelligent, efficient and daring</span>. He established an <span class="k">efficient administration</span>, <span class="k">maintained law and order</span>, <span class="k">introduced revenue reforms</span> <span class="m">(better ways of collecting taxes)</span> and <span class="k">strengthened his army</span>.</p>
+<p>The family line goes like this:</p>
+<p style="font-family:var(--hand);font-size:1.2rem;text-align:center">Saadat Khan → his nephew <b>Safdar Jung</b> → his son <b>Shuja-ud-Daulah</b></p>
+<p>Safdar Jung brought <span class="k">stability, peace and prosperity</span> to Awadh. Then came Shuja-ud-Daulah, the Nawab of Awadh.</p>
+<p>Here's the key idea. The <span class="k">prolonged period of peace and economic prosperity</span> <span class="m">(a long time of peace and wealth)</span> during the reign of the nawabs <span class="k">stimulated the growth of a refined and distinct Lucknavi culture</span> <span class="m">(encouraged a graceful, special Lucknow style)</span>. <span class="k">Lucknow, the capital city</span>, blossomed into a centre for <span class="k">creative and performing arts, literature and architecture</span>. <span class="tag">F3</span></p>
+
+<figure>
+<svg class="sketch" viewBox="0 0 600 260" role="img" aria-label="Sketch of Lucknow: a domed building with minarets, music notes floating above, and an open book">
+  <g filter="url(#pencil)">
+    <path class="s" d="M60 232 H540"/>
+    <path class="s" d="M210 232 V150 H390 V232"/>
+    <path class="s hatch" d="M275 232 V190 Q300 165 325 190 V232 Z"/>
+    <path class="s" d="M240 150 Q240 90 300 78 Q360 90 360 150"/>
+    <path class="s" d="M300 78 V58 M294 60 h12"/>
+    <path class="s" d="M180 232 V110 M198 232 V110 M176 110 Q189 90 202 110 Z M189 92 V80"/>
+    <path class="s" d="M402 232 V110 M420 232 V110 M398 110 Q411 90 424 110 Z M411 92 V80"/>
+    <path class="s" d="M225 175 q12 -14 24 0 v20 h-24 z M351 175 q12 -14 24 0 v20 h-24 z"/>
+    <path class="s" d="M470 60 v34 M470 60 l18 -6 v30"/>
+    <ellipse class="s" cx="465" cy="95" rx="7" ry="5"/>
+    <ellipse class="s" cx="483" cy="85" rx="7" ry="5"/>
+    <path class="s" d="M520 110 v26"/>
+    <ellipse class="s" cx="515" cy="137" rx="7" ry="5"/>
+    <path class="s" d="M60 200 Q90 188 118 200 Q146 188 176 200 V220 Q146 208 118 220 Q90 208 60 220 Z M118 200 V220"/>
+  </g>
+  <text x="300" y="254" text-anchor="middle">Lucknow</text>
+  <text x="70" y="182">literature</text>
+  <text x="430" y="160">performing arts</text>
+  <text x="300" y="44" text-anchor="middle">architecture</text>
+</svg>
+<figcaption>Lucknavi culture: what grows when a place is peaceful and rich.</figcaption>
+</figure>
+
+<div class="lab">
+<h4>Lab note: biology pun</h4>
+<p>In the lab, a bacterial culture only grows well in a stable medium: steady temperature, enough nutrients, no disturbance. Human culture is similar. Awadh had peace (stability) and prosperity (nutrients), so art, music, poetry and buildings could grow. That's your F3 answer in one line: stability → growth of culture.</p>
+</div>
+
+<!-- EPISODE 5 -->
+<h2><span class="ep">Episode 5</span>Mysore: the tigers of the south</h2>
+<p>Go back in time a bit. The <span class="k">collapse of the powerful Vijayanagar empire in the 17th century</span> gave rise to a number of <span class="k">independent kingdoms who were constantly at war with one another</span>. The most important of these was the <span class="k">kingdom of Mysore</span>, which somehow managed to <span class="k">preserve its independence despite repeated attacks by neighbouring kingdoms</span>. <span class="tag">H3(a)</span></p>
+<p>In the middle of the 18th century, Mysore, under the <span class="k">leadership of Hyder Ali</span>, emerged as <span class="k">one of the most powerful kingdoms in the south</span>.</p>
+
+<h3>Hyder Ali: from soldier to ruler</h3>
+<p>Hyder Ali was a man of <span class="k">exceptional qualities and abilities</span>. He was not born a prince. He <span class="k">rose from the ranks of an ordinary soldier in the Mysore army to the position of commander</span> by <span class="k">sheer dint of merit and determination</span> <span class="m">(only through his own talent and hard work)</span>.</p>
+<p>In <b>1761</b>, he <span class="k">overthrew the government and established his authority</span> over Mysore. Under his rule, Mysore became a <span class="k">prosperous and powerful state</span> and a <span class="k">formidable adversary of the English East India Company in the south</span> <span class="m">(a very strong enemy)</span>. <span class="tag">H3(b)</span></p>
+<p class="tag" style="white-space:normal">Date trick: 1761 twice! The Marathas crashed at Panipat in the north, and Hyder Ali rose in the south, in the same year.</p>
+
+<h3>Tipu Sultan: the Tiger of Mysore</h3>
+<p>Hyder Ali was succeeded by his son, <b>Tipu Sultan</b>, who proved to be a <span class="k">worthy successor</span>. He <span class="k">introduced many reforms to overhaul and reorganize the administrative machinery</span> <span class="m">(completely change and rearrange the way the government worked)</span>. He <span class="k">modernized the army</span> and <span class="k">strengthened the economy by encouraging agriculture and modern trade and industry</span>. He posed the <span class="k">most serious challenge to the rise of British power in India</span>. <span class="tag">H3(c)</span></p>
+<p>Compare him with Bengal: Bengal's nawabs made no efforts to strengthen their army. Tipu modernized his army and strengthened his economy, which is why he was such a big challenge to the British.</p>
+
+<figure>
+<svg class="sketch" viewBox="0 0 600 260" role="img" aria-label="Sketch of a curved sword with tiger stripes next to a tiger's face">
+  <g filter="url(#pencil)">
+    <path class="s" d="M110 190 Q260 200 400 150 Q380 172 250 196 Q170 206 110 202 Z"/>
+    <path class="s thin" d="M160 196 l6 -8 M200 197 l6 -8 M240 194 l6 -8 M280 188 l6 -8 M320 178 l6 -8"/>
+    <path class="s" d="M104 174 V218"/>
+    <path class="s hatch" d="M104 190 H52 V202 H104 Z"/>
+    <path class="s" d="M52 186 v20 q-10 -10 0 -20"/>
+    <circle class="s" cx="490" cy="118" r="62"/>
+    <path class="s" d="M440 82 q-8 -30 20 -26 M540 82 q8 -30 -20 -26"/>
+    <path class="s" d="M466 108 q8 -8 16 0 M498 108 q8 -8 16 0"/>
+    <path class="s" d="M480 132 h20 l-10 12 z M490 144 v10 M490 154 q-12 8 -20 0 M490 154 q12 8 20 0"/>
+    <path class="s thin" d="M490 60 v18 M476 64 l4 14 M504 64 l-4 14 M432 112 l16 4 M430 128 l18 0 M548 112 l-16 4 M550 128 l-18 0"/>
+    <path class="s thin" d="M466 146 l-34 -4 M466 152 l-32 6 M514 146 l34 -4 M514 152 l32 6"/>
+  </g>
+  <text x="490" y="210" text-anchor="middle">the Tiger of Mysore</text>
+  <text x="120" y="236">Wootz steel, tiger motifs, Persian inscriptions</text>
+</svg>
+<figcaption>One of Tipu's famous swords is kept in the British Museum.</figcaption>
+</figure>
+
+<p>Tipu Sultan's swords are famous for their <span class="k">craftsmanship</span> <span class="m">(skill in making)</span>. They were made from high-quality <span class="k">Wootz steel</span>, decorated with <span class="k">tiger motifs</span> <span class="m">(tiger designs)</span> that stood for his title, the <span class="k">"Tiger of Mysore"</span>. They carried inscriptions in Persian and were often inlaid with gold.</p>
+
+<div class="lab">
+<h4>Lab note: chemistry and physics</h4>
+<p><b>Chemistry:</b> steel is iron with a small amount of carbon. Wootz steel from South India was made by melting iron with carbon-rich material in sealed clay pots, which put a lot of carbon into it and gave it a beautiful wavy pattern. Scientists studying old swords made from this kind of steel have found tiny carbon structures inside them.</p>
+<p><b>Physics:</b> Hyder Ali and Tipu also used war rockets with iron tubes, which could fly much farther than older rockets with paper or bamboo tubes. The British were so impressed that they studied captured Mysore rockets to design their own. Think about why a strong iron tube would let you pack in more gunpowder.</p>
+<p class="nx">Bonus facts to make it interesting. Not in your textbook, so don't write them in the exam.</p>
+</div>
+
+<!-- WRAP UP -->
+<h2><span class="ep">The big picture</span>One formula, four kingdoms</h2>
+<p>If you look closely, almost every story in this chapter follows the same pattern. Once you see it, you can rebuild the chapter from memory:</p>
+<div class="formula" role="img" aria-label="Weak Mughal centre leads to a strong leader seizing the chance, then good administration, army and revenue, then peace and prosperity, then a weakness, then the British benefit">
+  <span>Weak Mughal centre</span><i>→</i><span>A strong leader grabs the chance</span><i>→</i><span>Good administration, army, revenue</span><i>→</i><span>Peace and prosperity</span><i>→</i><span>A weak spot appears</span><i>→</i><span>The British benefit</span>
+</div>
+
+<div class="tablewrap">
+<table>
+<thead><tr><th>Power</th><th>Key people</th><th>How it rose</th><th>Best achievement</th><th>Remember it as</th></tr></thead>
+<tbody>
+<tr><td><b>Marathas</b></td><td>Shahu, Balaji Vishwanath, Baji Rao I, Balaji Baji Rao</td><td>Rebellion against Mughal authority; Peshwas took real power</td><td>Kingdom became an empire; power behind the Mughal throne</td><td>The strongest contender, broken at Panipat</td></tr>
+<tr><td><b>Bengal</b></td><td>Murshid Quli Khan, Alivardi Khan</td><td>Governor freed himself from imperial control but kept paying tribute</td><td>Stability, peace, prosperity; trade encouraged</td><td>Rich, but a weak immune system</td></tr>
+<tr><td><b>Awadh</b></td><td>Saadat Khan, Safdar Jung, Shuja-ud-Daulah</td><td>Governor laid the foundation of an independent state</td><td>Lucknavi culture in Lucknow</td><td>Peace grows culture</td></tr>
+<tr><td><b>Mysore</b></td><td>Hyder Ali, Tipu Sultan</td><td>Survived after Vijayanagar fell; Hyder Ali seized power in 1761</td><td>Most serious challenge to the British</td><td>The tigers who fought back</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Only five dates to remember</h3>
+<ul class="dates">
+<li><b>1707</b>Aurangzeb dies. Shahu is released. The pillar cracks.</li>
+<li><b>1713</b>Balaji Vishwanath becomes Peshwa. The Peshwa phase begins (1713–1818).</li>
+<li><b>1719</b>Balaji Vishwanath marches to Delhi to help overthrow Farrukhsiyar.</li>
+<li><b>1761</b>Third Battle of Panipat: Marathas defeated by Ahmad Shah Abdali.</li>
+<li><b>1761</b>The same year, Hyder Ali takes power in Mysore.</li>
+</ul>
+
+<h3>Writing a good answer</h3>
+<p>The marks tell you how many points to write. A 4-mark answer needs about four separate points, each with at least one yellow keyword. A good trick is to start with the "who", add the "what they did", and finish with "why it mattered".</p>
+
+<!-- QUIZ -->
+<h2><span class="ep">Test yourself</span>Say it before you open it</h2>
+<p>Answer out loud first, then tap to check. The answers use the textbook's own sentences, so they are safe to learn for the exam.</p>
+
+<details><summary>1. What followed the disintegration of the Mughal empire?</summary><p>As the Mughal empire began to disintegrate, the political vacuum was filled by a number of independent and semi-independent regional powers such as Bengal, Awadh (Oudh), Hyderabad, Mysore and the Maratha, Sikh and Rajput states.</p></details>
+<details><summary>2. State the circumstances that led to the growth of the Peshwas' dominance.</summary><p>Shahu, the grandson of Shivaji, was released after the death of Aurangzeb in 1707. A war of succession broke out among the Marathas. Shahu succeeded in capturing the Maratha throne with the help of Balaji Vishwanath, who was rewarded with the post of Peshwa or chief minister (mukhya pradhan) in 1713. Shahu, ease-loving and weak, was gradually reduced to the position of ceremonial head of the Maratha kingdom, while real power and authority was exercised by the Peshwa.</p></details>
+<details><summary>3. What were the achievements of Balaji Vishwanath?</summary><p>Balaji Vishwanath took full advantage of the weaknesses of the Mughal administration to extract important concessions and enhance the power and prestige of the Marathas. All the territories that had once belonged to Shivaji but had been conquered by Aurangzeb were restored to Shahu. The right to levy chauth and sardeshmukhi from six Mughal provinces in the Deccan was also granted to the Marathas. In 1719, he marched to Delhi to help the Sayyid brothers overthrow the Mughal emperor, Farrukhsiyar. He made the Marathas a formidable power and laid the foundations of the hereditary, dynastic rule of the Peshwas.</p></details>
+<details><summary>4. Discuss the achievements of Baji Rao I.</summary><p>Baji Rao I was a military genius. Under his bold and dynamic leadership, the Maratha kingdom was transformed into the Maratha empire after a series of brilliant campaigns against the Mughals and other rivals.</p></details>
+<details><summary>5. Name the four prominent Maratha families.</summary><p>The Sindhia, the Bhonsle, the Holkar and the Gaekwad families. (Trick: "Some Brave Horsemen Gallop.")</p></details>
+<details><summary>6. How was the Maratha confederacy established?</summary><p>The Peshwas divided the erstwhile Mughal provinces into 'spheres of influence' and placed them under the chiefs of these Maratha families. These chiefs enjoyed maximum autonomy within their respective regions. The Peshwa was the official head of this loose union of Maratha chiefs which is referred to as the Maratha confederacy.</p></details>
+<details><summary>7. Discuss the achievements of Balaji Baji Rao.</summary><p>When Shahu died, the Peshwa became the official head of the Maratha empire. Poona (now Pune), the headquarters of the Peshwas, became the capital of the Maratha empire. Balaji Baji Rao continued to follow the policy of expansion. During his reign, the Maratha empire reached the heights of its power and glory. In the north, the Marathas became the power behind the Mughal throne.</p></details>
+<details><summary>8. Why is the Third Battle of Panipat significant?</summary><p>The Maratha army was decisively defeated by Ahmad Shah Abdali at the Third Battle of Panipat in 1761. The Maratha ambition of replacing the Mughal empire lay scattered on the plains of Panipat. The Afghans, too, failed to capitalize on their victory. The conditions were ideal for the entry of another powerful contender for supremacy, the English East India Company.</p></details>
+<details><summary>9. What advantage did Murshid Quli Khan take of the decline in the power of the Mughal empire?</summary><p>As the Mughal authority declined, the governor of Bengal, Murshid Quli Khan, took advantage of the situation to free himself from imperial control. Although he continued to pay annual tribute to the Mughal empire, he began to rule Bengal independently.</p></details>
+<details><summary>10. What were the achievements of Murshid Quli Khan?</summary><p>Murshid Quli Khan was an excellent administrator and a man of exceptional abilities. He freed Bengal from external and internal dangers and established stability, peace and prosperity in the state.</p></details>
+<details><summary>11. Describe the rule of Alivardi Khan.</summary><p>The most capable among his successors was Alivardi Khan. He recognized the importance of promoting trade and encouraged merchants, Indian as well as foreign, to carry on trade in Bengal. He, however, did not allow the French and British merchants to fortify their factories in Chandernagore (now Chandannagar) and Calcutta (now Kolkata), respectively.</p></details>
+<details><summary>12. What were the failures of the nawabs of Bengal?</summary><p>The nawabs of Bengal, however, failed to understand the true nature and ulterior motives of the British trading company. They believed that a trading company could never challenge their authority. No efforts were made to reorganize and strengthen the army. Corruption was rampant and even high ranking officials were susceptible to bribes. These weaknesses made Bengal a happy hunting ground for the aggressive and imperialistic ambitions of the British.</p></details>
+<details><summary>13. How did Saadat Khan lay the foundation of Awadh?</summary><p>The foundation of the independent state of Awadh was laid by Saadat Khan, the governor of the Mughal province of Awadh. He was intelligent, efficient and daring. He established an efficient administration, maintained law and order, introduced revenue reforms and strengthened his army.</p></details>
+<details><summary>14. How did political and economic stability in Awadh impact cultural development in Lucknow?</summary><p>The prolonged period of peace and economic prosperity during the reign of the nawabs stimulated the growth of a refined and distinct Lucknavi culture. Lucknow, the capital city, blossomed into a centre for creative and performing arts, literature and architecture.</p></details>
+<details><summary>15. What happened after the collapse of the Vijayanagar empire?</summary><p>The collapse of the powerful Vijayanagar empire in the 17th century gave rise to a number of independent kingdoms who were constantly at war with one another. The most important of these was the kingdom of Mysore which had somehow managed to preserve its independence despite repeated attacks by neighbouring kingdoms.</p></details>
+<details><summary>16. Discuss the achievements of Hyder Ali.</summary><p>Hyder Ali was a man of exceptional qualities and abilities. He rose from the ranks of an ordinary soldier in the Mysore army to the position of commander by sheer dint of merit and determination. In 1761, he overthrew the government and established his authority over the Mysore state. Under his rule, Mysore became a prosperous and powerful state and a formidable adversary of the English East India Company in the south.</p></details>
+<details><summary>17. Discuss the contribution of Tipu Sultan.</summary><p>Hyder Ali was succeeded by his son, Tipu Sultan, who proved to be a worthy successor. He introduced many reforms to overhaul and reorganize the administrative machinery. He modernized the army and strengthened the economy by encouraging agriculture and modern trade and industry. He posed the most serious challenge to the rise of British power in India.</p></details>
+
+<p class="foot">Skipped on purpose: Hyderabad, the Carnatic, the Rajputs and the Sikh kingdom.</p>
+</main>
+
+<script>
+(function(){
+  var btn=document.getElementById('coverBtn');
+  btn.addEventListener('click',function(){
+    var on=document.body.classList.toggle('cover');
+    btn.setAttribute('aria-pressed',on?'true':'false');
+    btn.textContent=on?'Show the keywords':'Cover the keywords';
+    if(!on){document.querySelectorAll('.k.peek').forEach(function(e){e.classList.remove('peek')});}
+  });
+  document.addEventListener('click',function(e){
+    var k=e.target.closest('.k');
+    if(k&&document.body.classList.contains('cover')){k.classList.toggle('peek');}
+  });
+})();
+</script>
+</body>
+</html>
